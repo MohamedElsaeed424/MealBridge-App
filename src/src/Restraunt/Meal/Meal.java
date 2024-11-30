@@ -30,14 +30,6 @@ public class Meal {
     public void setQuantity(int quantity) {
         Quantity = quantity;
     }
-    public void ReduceQuantity(){
-        if(Quantity>0){
-            Quantity--;
-        }
-        else
-            System.out.println("This Meal is Out of the stock ,Come Later");
-    }
-
 
     @Override
     public String toString() {

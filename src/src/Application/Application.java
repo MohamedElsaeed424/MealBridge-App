@@ -21,7 +21,9 @@ public class Application {
     public void donateToRestaurant(double balance, Restaurant restaurant) {
         if (this.balance >= balance) {
             this.balance -= balance;
-            restaurant.DonateMeals(balance);
+            double remainingBalance = restaurant.DonateMeals(balance);
+            this.balance += remainingBalance;
+            System.out.println("The remaining balance in the Application is: " + remainingBalance);
             System.out.println("Donation Done Successfully to the Restaurant");
         } else {
             System.out.println("Donation Failed, Insufficient Balance");
