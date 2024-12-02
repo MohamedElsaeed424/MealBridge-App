@@ -1,9 +1,7 @@
 package Restraunt;
 
-import Restraunt.DonatedMeal;
-import Restraunt.Meal.Meal;
+import Restraunt.Meal.DonatedMeal;
 
-import java.util.ArrayList;
 import java.util.List;// Class to hold donation details
 public class DonationResult {
     private double remainingBalance;

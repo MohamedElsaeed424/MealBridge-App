@@ -1,8 +1,7 @@
 package Application;
 
-import Restraunt.DonatedMeal;
+import Restraunt.Meal.DonatedMeal;
 import Restraunt.DonationResult;
-import Restraunt.Meal.Meal;
 import Restraunt.Restaurant;
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package Restraunt;
+package Restraunt.Meal;
 
 public class DonatedMeal {
     private String name;
