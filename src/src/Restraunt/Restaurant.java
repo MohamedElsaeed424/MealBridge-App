@@ -2,8 +2,10 @@ package Restraunt;
 
 import Application.Application;
 import Restraunt.Meal.Meal;
-
+import Restraunt.Restaurant;
 import java.util.ArrayList;
+import java.util.List;
+
 public class Restaurant {
     private String name;
     private String address;
@@ -27,12 +29,14 @@ public class Restaurant {
     public void addMeals (ArrayList<Meal>meals){
         this.meals.addAll(meals);
     }
-    
-    public double DonateMeals(double balance) {
+
+    public DonationResult DonateMeals(double balance) {
         double remainingBalance = balance;
+        List<DonatedMeal> donatedMeals = new ArrayList<>();
+
         System.out.println("\n=== Starting Donation Process ===");
-        System.out.println("Initial balance: $\" + balance);\n" +
-                "        System.out.println(\"\\nDonating meals from " + this.name + ":");
+        System.out.println("Initial balance: $" + balance);
+        System.out.println("\nDonating meals from " + this.name + ":");
 
         // Track total meals donated
         int totalMealsDonated = 0;
@@ -61,7 +65,16 @@ public class Restaurant {
                 meal.setQuantity(availableQuantity - mealsToReduce);
 
                 // Calculate cost of these meals
-                double costOfDonation = (mealsToReduce * meal.getPrice())-(mealsToReduce * meal.getPrice()*discount);
+                double costOfDonation = (mealsToReduce * meal.getPrice()) - (mealsToReduce * meal.getPrice() * discount);
+
+                // Create DonatedMeal object and add to list
+                DonatedMeal donatedMeal = new DonatedMeal(
+                        meal.getName(),
+                        mealsToReduce,
+                        meal.getPrice(),
+                        costOfDonation
+                );
+                donatedMeals.add(donatedMeal);
 
                 // Update the remaining balance
                 remainingBalance -= costOfDonation;
@@ -85,7 +98,7 @@ public class Restaurant {
         System.out.println("Remaining balance: $" + String.format("%.2f", remainingBalance));
         System.out.println("========================\n");
 
-        return remainingBalance;
+        return new DonationResult(remainingBalance, donatedMeals, totalValueDonated);
     }
     @Override
     public String toString() {
