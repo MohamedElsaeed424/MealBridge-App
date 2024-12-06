@@ -98,7 +98,7 @@ public class Restaurant {
         System.out.println("Remaining balance: $" + String.format("%.2f", remainingBalance));
         System.out.println("========================\n");
 
-        return new DonationResult(remainingBalance, donatedMeals, totalValueDonated);
+        return new DonationResult( donatedMeals, totalValueDonated);
     }
     @Override
     public String toString() {

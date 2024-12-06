@@ -28,7 +28,6 @@ public class Application {
         if (this.balance >= balance) {
             this.balance -= balance;
             DonationResult result = restaurant.DonateMeals(balance);
-            this.balance += result.getRemainingBalance();
 
             // Update donatedMeals tracking
             for (DonatedMeal newMeal : result.getDonatedMeals()) {
